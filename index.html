@@ -1,17 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AI Indoor Farm Dashboard</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indoor Farm Dashboard</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.css" />
-
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <!-- HEADER -->
   <header class="topbar">
     <div class="brand">
       <h1>Indoor Farm Dashboard</h1>
@@ -19,27 +17,33 @@
     </div>
 
     <div class="controls">
-      <label class="toggle">
-        <input id="mockToggle" type="checkbox" checked />
-        <span>Mock data</span>
-      </label>
-      <div class="profile">
-        <img src="https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg" alt="Profile" class="profile-icon" />
+      <div class="profile-area">
+        <label class="toggle">
+          <input id="mockToggle" type="checkbox" checked />
+          <span>Mock data</span>
+        </label>
+        <div class="profile">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"
+            alt="Profile"
+            class="profile-icon"
+          />
+        </div>
       </div>
     </div>
   </header>
 
-  <section class="dashboard-top">
-    <div class="greeting-box">
-      <h2 id="greetingText">Good Morning, Grower 🌞</h2>
-      <p id="plantFact">Did you know? Plants can communicate through chemical signals!</p>
-    </div>
-  </section>
-
+  <!-- MAIN CONTENT -->
   <main class="container">
+    <!-- LEFT SECTION -->
     <section class="left">
-      <div class="card stats">
-        <div class="stat-row">
+      <div class="greet-stats-row">
+        <div class="card greeting-card">
+          <h2 id="greetingText">Good Night, Grower 😴</h2>
+          <p id="plantFact">Peace lilies can filter mold spores from the air.</p>
+        </div>
+
+        <div class="card stats">
           <div class="stat">
             <div class="stat-title">Temperature</div>
             <div id="tempVal" class="stat-value">-- °C</div>
@@ -48,7 +52,6 @@
             <div class="stat-title">Humidity</div>
             <div id="humVal" class="stat-value">-- %</div>
           </div>
-          
           <div class="stat">
             <div class="stat-title">Soil Moisture</div>
             <div id="soilVal" class="stat-value">-- %</div>
@@ -61,56 +64,66 @@
       </div>
 
       <div class="card charts">
+        <h2>Data Trends</h2>
+        <p class="chart-context">
+          <strong>Temperature</strong>
+        </p>
         <div class="chart-wrap">
           <canvas id="tempChart"></canvas>
         </div>
+
+        <h3>Secondary Metrics</h3>
+        <p class="small-chart-context">
+          <strong>Soil Moisture</strong> and <strong>Light Intensity</strong>
+        </p>
+
         <div class="chart-row">
-          <div class="small-chart">
-            <canvas id="soilChart"></canvas>
-          </div>
-          <div class="small-chart">
-            <canvas id="lightChart"></canvas>
-          </div>
+          <div class="small-chart"><canvas id="soilChart"></canvas></div>
+          <div class="small-chart"><canvas id="lightChart"></canvas></div>
         </div>
       </div>
     </section>
 
+    <!-- RIGHT SECTION -->
     <aside class="right">
-      <div class="card ai-insight">
-        <h2>AI Growth Insight</h2>
-        <p id="aiText">Waiting for data...</p>
-        <ul id="aiTips" class="tips"></ul>
-      </div>
-
-      <div class="card settings">
-        <h3>Connection</h3>
-        <label>
-          Endpoint URL (ESP32 → server): 
-          <input id="endpoint" type="text" placeholder="http://192.168.4.1/sensor" />
-        </label>
-        <button id="applyBtn">Apply</button>
-
-        <h3>Live</h3>
-        <div class="live-controls">
-          <label>Poll interval:
-            <select id="intervalSelect">
-              <option value="2000">2s</option>
-              <option value="5000" selected>5s</option>
-              <option value="10000">10s</option>
-            </select>
-          </label>
-          <button id="manualFetch">Fetch Now</button>
+      <div class="tile-bg">
+        <div class="card ai-insight">
+          <h2>AI Growth Insight</h2>
+          <p id="aiText">AI is thinking...</p>
+          <ul id="aiTips" class="tips"></ul>
         </div>
 
-        <p class="hint">ESP32 should serve JSON like:
-          <code>{ "temperature": 26.4, "humidity": 60, "soil": 43, "light": 420 }</code>
-        </p>
+        <div class="card settings">
+          <h3>Connection</h3>
+          <label>
+            Endpoint URL (ESP32 → server):
+            <input id="endpoint" type="text" placeholder="http://192.168.4.1/sensor" />
+          </label>
+          <button id="applyBtn">Apply</button>
+
+          <h3>Live</h3>
+          <div class="live-controls">
+            <label>Poll interval:
+              <select id="intervalSelect">
+                <option value="2000">2s</option>
+                <option value="5000" selected>5s</option>
+                <option value="10000">10s</option>
+              </select>
+            </label>
+            <button id="manualFetch">Fetch Now</button>
+          </div>
+
+          <p class="hint">
+            ESP32 should serve JSON like:<br />
+            <code>{ "temperature": 26.4, "humidity": 60, "soil": 43, "light": 420 }</code>
+          </p>
+        </div>
       </div>
     </aside>
   </main>
 
   <footer class="footer">
-    <small>YOUR OWN INDOOR FARM</small>
+    <small>AI Indoor Farming System</small>
   </footer>
 
   <script src="script.js"></script>
