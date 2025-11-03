@@ -1,0 +1,226 @@
+:root{
+  --bg: #f3f4f6;             /* soft grey background */
+  --card: #ffffff;            /* white card panels */
+  --muted: #6b7280;
+  --text: #1f2937;
+  --accent: #0ea5a2;          /* teal accent */
+  --shadow: 0 8px 20px rgba(0,0,0,0.05);
+  --radius: 14px;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:linear-gradient(180deg,#f3f4f6 0%, #e5e7eb 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  font-size:15px;
+  /* Updated background for a fresh, nature-inspired look */
+  background: linear-gradient(180deg, #f4fdf5 0%, #e9f7ec 100%); 
+}
+
+/*profile icon */
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.profile-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #d1d5db;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.profile-icon:hover {
+  transform: scale(1.05);
+}
+
+/* Topbar */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:18px 22px;
+  border-bottom:1px solid #d1d5db;
+  /* Updated topbar background */
+  background:rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+.brand h1{
+  margin:0;
+  font-size:22px; /* Increased for better readability */
+  font-weight:700;
+  letter-spacing:0.3px;
+  color:#1b4332; /* A strong green for the brand */
+}
+.subtitle{
+  margin:2px 0 0 0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* container layout */
+.container{
+  display:grid;
+  grid-template-columns: 1fr 360px;
+  gap:18px;
+  padding:20px;
+  width:100%;
+  max-width:1200px;
+  margin:18px auto;
+  flex:1;
+}
+.left{display:flex;flex-direction:column;gap:18px}
+.right{display:flex;flex-direction:column;gap:18px}
+
+/* Card */
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:16px;
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #f0f0f0; /* Subtle border for definition */
+}
+.card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 24px rgba(0,0,0,0.07);
+}
+
+/* Greeting Box Styling */
+.dashboard-top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 0 20px;
+  width: 100%;
+  margin: 18px auto 0; /* Align with container */
+  flex-wrap: wrap;
+}
+.greeting-box {
+  flex: 1;
+  background: rgba(235, 255, 235, 0.8); /* Very light green/white */
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  font-family: "Poppins", sans-serif;
+  box-shadow: var(--shadow);
+  border: 1px solid #c7e8c7;
+}
+
+.greeting-box h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1b4332;
+}
+
+.greeting-box p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #2d6a4f;
+  max-width: 380px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+
+/* Stats */
+.stat-row{display:flex;gap:12px;flex-wrap:wrap}
+.stat{
+  min-width:140px;
+  flex:1;
+  padding:12px 14px; /* increased padding */
+  border-radius:10px;
+  /* Soft, distinct background for each stat */
+  background:linear-gradient(180deg, #f8fbf8, #f0f3f0); 
+  box-shadow:inset 0 1px 3px rgba(0,0,0,0.04);
+}
+.stat-title{font-size:13px;color:var(--muted);font-weight:500;} /* slightly larger title */
+.stat-value{font-size:22px;font-weight:700;margin-top:4px;color:#1b4332;} /* bolder value */
+
+/* Charts */
+.charts .chart-wrap{height:270px}
+.chart-row{display:flex;gap:12px;margin-top:12px}
+.small-chart{flex:1;height:150px;padding:8px;border-radius:10px;background:transparent}
+
+/* AI insight */
+.ai-insight h2{margin:0 0 8px 0; font-size: 1.5rem; color:#1b4332;}
+#aiText{font-weight:700;margin-bottom:8px;font-size:1.1rem;color:var(--accent);} /* Stronger emphasis */
+.tips{margin:0;padding:0 0 0 20px;color:#3f6148;line-height:1.6;} /* Better line height */
+
+/* Settings */
+.settings h3{color:#1b4332; margin-top: 0;}
+.settings label{font-size: 14px;}
+.settings input[type="text"], .settings select{
+  width:100%;padding:10px;border-radius:8px;border:1px solid #e5e7eb;margin-top:6px;
+  outline:none;font-size:14px;box-shadow:inset 0 1px 2px rgba(0,0,0,0.03);
+}
+.settings button{
+  margin-top:8px;
+  padding:10px 14px; /* Increased size */
+  border-radius:8px;
+  border:0;
+  background:#2d6a4f; /* A deeper green */
+  color:white;
+  cursor:pointer;
+  font-weight:600;
+  transition:background 0.2s ease;
+}
+.settings button:hover{
+  background:#1b4332;
+}
+.live-controls{display:flex;gap:12px;align-items:center;margin-top:10px}
+.hint{font-size:13px;color:var(--muted);margin-top:12px}
+code{
+  background:#e6ffe6; /* Light green code block */
+  padding:4px 6px;
+  border-radius:6px;
+  font-size:13px;
+  color:#1b4332;
+  font-family: monospace;
+}
+
+/* Footer */
+.footer{
+  text-align:center;
+  padding:14px;
+  color:var(--muted);
+  font-size:13px;
+  border-top:1px solid #d1d5db;
+  background:rgba(255,255,255,0.8);
+}
+
+/* Controls */
+.controls{display:flex;gap:10px;align-items:center}
+.toggle{display:flex;gap:8px;align-items:center;font-size:14px}
+.toggle input[type="checkbox"] {
+  /* Simple switch styling */
+  transform: scale(1.2);
+  accent-color: #2d6a4f;
+}
+
+/* Responsive */
+@media (max-width:1024px){
+  .container{grid-template-columns:1fr;max-width:920px;padding:14px}
+  .right{order:2}
+  .left{order:1}
+  .dashboard-top {
+    padding: 0 14px;
+  }
+}
